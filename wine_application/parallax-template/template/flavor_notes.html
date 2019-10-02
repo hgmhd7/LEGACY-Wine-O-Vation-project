@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wine-O Vataion</title>
+
+
+  <style>
+    /* @import url(../style.css?aea6f0a); */
+
+    .background {
+      fill: #eee;
+    }
+
+    line {
+      stroke: #fff;
+    }
+
+    text.active {
+      fill: red;
+    }
+  </style>
+
+
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+  integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+  integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+  crossorigin="anonymous"></script> -->
+
+  <!-- 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+
+
+
+
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://d3js.org/d3.v2.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+
+  <!--  Scripts-->
+
+
+
+
+
+
+
+
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="../media/wine_8.jpg" class="brand-logo">Logo</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-darken-2">Wine-O Vation</h1>
+        <div class="row center">
+          <h5 class="header col s12 dark">brought to you by the Data Wientist</h5>
+        </div>
+        <div class="row center">
+          <a href="http://materializecss.com/getting-started.html" id="download-button"
+            class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="../media/wine_8.jpg" alt="Unsplashed background img 1"></div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+
+        <div class="col lg12 m12 s12">
+          <div class="col lg12 m12 s12">
+            <h1 class="center">Taste Note Word Cloud</h1>
+            <div class="parallax center" style="padding-left: 600px; padding-top: 100px"><img
+                src="../media/bottle_glass_wc.png" alt="Unsplashed background img 1"></div>
+
+          </div>
+
+          <!-- <div class="col lg6 m6 s6">
+                <div class="parallax" style="size:"><img src="media/wine_wc.png" alt="Unsplashed background img 3"></div>
+            
+        </div> -->
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">A look into the works of wine from the scienctific perspective.</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="../media/wine_2.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+
+
+
+
+
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h1>Flavor Note Occurance Matrix</h1>
+
+          <div id="test"></div>
+
+          <!-- Dropdown Trigger -->
+
+          <script>document.addEventListener('DOMContentLoaded', function () {
+              $(document).ready(function () {
+                $('.tabs').tabs();
+              });
+
+          </script>
+          <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
+
+
+
+          <!-- Dropdown Structure -->
+          <ul id='dropdown1' class='dropdown-content'>
+            <option value="name">by Name</option>
+            <option value="count">by Frequency</option>
+            <option value="group">by Cluster</option>
+          </ul>
+
+
+          <aside style="margin-top:80px;">
+            <p>Order: <select id="order">
+                <option value="name">by Name</option>
+                <option value="count">by Frequency</option>
+                <option value="group">by Cluster</option>
+              </select>
+
+          </aside>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">A cutting edge approch to wine exploration.</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="../media/wine_3.jpg" alt="Unsplashed background img 3"></div>
+  </div>
+
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <!-- <div class="col l6 s4">
+          <h5 class="white-text">Team Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of data driven scientists that also have a taste for fine wine.</p> -->
+
+
+        <!-- </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div> -->
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Made by <a class="brown-text text-lighten-3">Team Data Wientists</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="../js/materialize.js"></script>
+  <script src="../js/init.js"></script>
+  <script src="../js/flavor_notes.js"></script>
+
+
+</body>
+
+</html>
