@@ -16,11 +16,11 @@ var svg = d3.select('#taste').append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.json("../js/miserables.json", function(miserables) {
+d3.json("../js/flavor_note_words.json", function(flavor_note_words) {
 
-  console.log(miserables)
+  console.log(flavor_note_words)
   var matrix = [],
-      nodes = miserables.nodes,
+      nodes = flavor_note_words.nodes,
       n = nodes.length;
 
   // Compute index per node.
@@ -31,7 +31,7 @@ d3.json("../js/miserables.json", function(miserables) {
   });
 
   // Convert links to matrix; count character occurrences.
-  miserables.links.forEach(function(link) {
+  flavor_note_words.links.forEach(function(link) {
     matrix[link.source][link.target].z += link.value;
     matrix[link.target][link.source].z += link.value;
     matrix[link.source][link.source].z += link.value;
@@ -128,7 +128,7 @@ d3.json("../js/miserables.json", function(miserables) {
     order("count");
   });
 
-  d3.select("#cluster").on("click", function() {
+  d3.select("#group").on("click", function() {
     clearTimeout(timeout);
     order("group");
     // d3.select.document.getElementById("cluster").node().focus();

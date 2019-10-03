@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Wine-O Vataion</title>
 
- <!-- STYLING FOR THE OCCURANCE MATRIX  -->
+  <!-- STYLING FOR THE OCCURANCE MATRIX  -->
   <style>
     /* @import url(../style.css?aea6f0a); */
 
@@ -31,29 +31,29 @@
   <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://d3js.org/d3.v2.min.js" charset="utf-8"></script>
-  
+
 </head>
 
 
 <body>
 
   <nav class="white" role="navigation">
-      <div class="nav-wrapper container">
-        <a id="logo-container" href="../media/wine_8.jpg" class="brand-logo">Logo</a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="index.html">HOME</a></li>
-          <li><a href="flavor_notes.html">THE STORY OF WINE</a></li>
-          <li><a href="flavor_notes.html">A MOUTHFUL</a></li>
-          <li><a href="flavor_notes.html">VIRTUAL SOMMELER</a></li>
-          <li><a href="flavor_notes.html">YOUR RECOMMENDATION</a></li>
-        </ul>
-  
-        <ul id="nav-mobile" class="sidenav">
-          <li><a href="#">Navbar Link</a></li>
-        </ul>
-        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      </div>
-    </nav>
+    <div class="nav-wrapper container-fluid">
+      <a id="logo-container" href="../media/wine_8.jpg" class="brand-logo">Logo</a>
+      <ul class="right hide-on-med-and-down" style="padding-right: 30px">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="story_of_wine.html">THE STORY OF WINE</a></li>
+        <li><a href="flavor_notes.html">A MOUTHFUL</a></li>
+        <li><a href="virtual_sommelier.html">VIRTUAL SOMMELIER</a></li>
+        <li><a href="wine_recommender.html">YOUR RECOMMENDATION</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
 
 
   <div id="index-banner" class="parallax-container">
@@ -64,10 +64,7 @@
         <div class="row center">
           <h5 class="header col s12 dark">brought to you by the Data Wientist</h5>
         </div>
-        <div class="row center">
-          <a href="http://materializecss.com/getting-started.html" id="download-button"
-            class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
-        </div>
+
         <br><br>
 
       </div>
@@ -85,16 +82,32 @@
         <div class="col lg12 m12 s12">
           <div class="col lg12 m12 s12">
             <h1 class="center">Taste Note Word Cloud</h1>
-            <div class="parallax center" style="padding-left: 600px; padding-top: 100px"><img
+            <div class="parallax center" style="padding-left: 1050px; padding-top: 100px"><img
                 src="../media/bottle_glass_wc.png" alt="Unsplashed background img 1"></div>
 
           </div>
 
-          <!-- <div class="col lg6 m6 s6">
-                <div class="parallax" style="size:"><img src="media/wine_wc.png" alt="Unsplashed background img 3"></div>
-            
-        </div> -->
+          <div class="card col lg4 m4 s12" STYLE="position:absolute; LEFT:200px; TOP:800px;">
 
+
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="../media/wine_wc.png">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Wine Word-Cloud<i
+                  class="material-icons right">more_vert</i></span>
+              <!-- <p><a href="#">This is a link</a></p> -->
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Taste Notes Galore...<i
+                  class="material-icons right">close</i></span>
+              <p>The bottle to the right uniquely displays some of the commmon words used to describe the wines in the
+                data set. In fact, the bottle and glasses started out as the picture you see here in on the
+                title card. We transposed the words onto a mask of a wine glass and bottles for added effect. Which of
+                these words describe your favorite types of wine???
+              </p>
+            </div>
+          </div>
 
         </div>
       </div>
@@ -129,7 +142,7 @@
 
 
 
-         
+
 
           <!-- 
     
@@ -144,57 +157,66 @@
             <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
             <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
           </ul> -->
-         
+
 
           <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h1>Flavor Note Occurance Matrix</h1>
+          <h1>Taste Note Matrix</h1>
 
-          <div id="taste" style="padding-right:900px" ></div>
+          <div id="taste" style="padding-right:900px"></div>
 
-         
-            <div class="col lg12 m12 s12">
 
-              <ul class="tabs" style="padding-right: 335px">
-                <li class="tab col s3" value="name" id="name"><a href="#name">Order by Name</a> </li>
-                <li class="tab col s3" value="cluster" id="cluster"><a href="#cluster">Order by Cluster</a></li>
-                <li class="tab col s3" value="count" id="count"><a href="#count">Order By Count</a></li>
-              </ul>
-              </select>
-            </div>
-            <select id="#">
-              <div id="name" class="col s12">Order by Name</div>
-              <div id="cluster" class="col s12">Order by Cluster</div>
-              <div id="count" class="col s12">Order By Count</div>
+          <div class="col lg12 m12 s12">
+
+            <ul class="tabs" style="padding-right: 335px">
+              <li class="tab col s3" value="name" id="name"><a href="#name">Order by Name</a> </li>
+              <li class="tab col s3" value="group" id="group"><a href="#group">Order by Group</a></li>
+              <li class="tab col s3" value="count" id="count"><a href="#count">Order By Count</a></li>
+            </ul>
             </select>
+          </div>
+          <select id="#">
+            <div id="name" class="col s12">Order by Name</div>
+            <div id="group" class="col s12">Order by Group</div>
+            <div id="count" class="col s12">Order By Count</div>
+          </select>
 
 
-            <!-- <div class="card col lg4 m4 s12" STYLE="position:relative; LEFT:900px; bottom:300px; WIDTH:620PX"></div> -->
+          <!-- <div class="card col lg4 m4 s12" STYLE="position:relative; LEFT:900px; bottom:300px; WIDTH:620PX"></div> -->
 
-            <div class="card col lg4 m4 s12" STYLE="position:absolute; RIGHT:50px; TOP:2300px;">
-
-              
-                <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="../media/wine_2.jpg">
-                </div>
-                <div class="card-content">
-                  <span class="card-title activator grey-text text-darken-4">So, what does the matrix respresent??? <i class="material-icons right">more_vert</i></span>
-                  <!-- <p><a href="#">This is a link</a></p> -->
-                </div>
-                <div class="card-reveal">
-                  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                  <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                </div>
-              </div>
-
-       
+          <div class="card col lg4 m4 s12" STYLE="position:absolute; RIGHT:50px; TOP:2300px;">
 
 
-      </div>
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="../media/wine_2.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">So, what does this matrix respresent??? <i
+                  class="material-icons right">more_vert</i></span>
+              <!-- <p><a href="#">This is a link</a></p> -->
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Taste the Rainbow...<i
+                  class="material-icons right">close</i></span>
+              <p>This colorful matrix represents some of the most frequent descriptors critics used to describe the
+                taste of the wine.
+                These taste notes tend to generally fir into three distinct categores... 1) dry, briny, and acidic wines
+                2) Sweet, fruity, and tropical wines 3) Complex, blended, and specialty wines
+                The colors for these groups are orange, green, and red respectively. The grey boxes represent wine taste
+                notes that also cross into another category outside of its own general area.
+                Click around and organize the flavors by name, group, or count!!!
+              </p>
+            </div>
+          </div>
+
+
+
+
+        </div>
       </div>
     </div>
   </div>
 
-<!-- 
+  <!-- 
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
       <div class="container">
@@ -208,7 +230,7 @@
 
   <footer class="page-footer teal">
     <div class="container">
-      <div class="row"> 
+      <div class="row">
 
         <!-- <div class="col l6 s4">
           <h5 class="white-text">Team Bio</h5>
