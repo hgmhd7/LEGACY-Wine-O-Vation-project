@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Wine-O Vataion</title>
 
-
+ <!-- STYLING FOR THE OCCURANCE MATRIX  -->
   <style>
     /* @import url(../style.css?aea6f0a); */
 
@@ -24,23 +24,6 @@
   </style>
 
 
-  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-  crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-  integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-  crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-  integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-  crossorigin="anonymous"></script> -->
-
-  <!-- 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
-
-
-
-
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -48,32 +31,30 @@
   <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://d3js.org/d3.v2.min.js" charset="utf-8"></script>
+  
 </head>
+
 
 <body>
 
-  <!--  Scripts-->
-
-
-
-
-
-
-
-
   <nav class="white" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="../media/wine_8.jpg" class="brand-logo">Logo</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="../media/wine_8.jpg" class="brand-logo">Logo</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="flavor_notes.html">THE STORY OF WINE</a></li>
+          <li><a href="flavor_notes.html">A MOUTHFUL</a></li>
+          <li><a href="flavor_notes.html">VIRTUAL SOMMELER</a></li>
+          <li><a href="flavor_notes.html">YOUR RECOMMENDATION</a></li>
+        </ul>
+  
+        <ul id="nav-mobile" class="sidenav">
+          <li><a href="#">Navbar Link</a></li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
 
-      <ul id="nav-mobile" class="sidenav">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
 
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
@@ -131,7 +112,7 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A look into the works of wine from the scienctific perspective.</h5>
+          <h5 class="header col s12 light">A look into the world of wine from the scienctific perspective.</h5>
         </div>
       </div>
     </div>
@@ -148,46 +129,72 @@
 
 
 
+         
+
+          <!-- 
+    
+          <a class='dropdown-trigger btn' href='#' data-target='dropdown1' id="order">Drop Me!</a>
+
+          
+          <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!">one</a></li>
+            <li><a href="#!">two</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a href="#!">three</a></li>
+            <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+            <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+          </ul> -->
+         
+
           <h3><i class="mdi-content-send brown-text"></i></h3>
           <h1>Flavor Note Occurance Matrix</h1>
 
-          <div id="test"></div>
+          <div id="taste" style="padding-right:900px" ></div>
 
-          <!-- Dropdown Trigger -->
+         
+            <div class="col lg12 m12 s12">
 
-          <script>document.addEventListener('DOMContentLoaded', function () {
-              $(document).ready(function () {
-                $('.tabs').tabs();
-              });
-
-          </script>
-          <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
-
-
-
-          <!-- Dropdown Structure -->
-          <ul id='dropdown1' class='dropdown-content'>
-            <option value="name">by Name</option>
-            <option value="count">by Frequency</option>
-            <option value="group">by Cluster</option>
-          </ul>
-
-
-          <aside style="margin-top:80px;">
-            <p>Order: <select id="order">
-                <option value="name">by Name</option>
-                <option value="count">by Frequency</option>
-                <option value="group">by Cluster</option>
+              <ul class="tabs" style="padding-right: 335px">
+                <li class="tab col s3" value="name" id="name"><a href="#name">Order by Name</a> </li>
+                <li class="tab col s3" value="cluster" id="cluster"><a href="#cluster">Order by Cluster</a></li>
+                <li class="tab col s3" value="count" id="count"><a href="#count">Order By Count</a></li>
+              </ul>
               </select>
+            </div>
+            <select id="#">
+              <div id="name" class="col s12">Order by Name</div>
+              <div id="cluster" class="col s12">Order by Cluster</div>
+              <div id="count" class="col s12">Order By Count</div>
+            </select>
 
-          </aside>
-        </div>
+
+            <!-- <div class="card col lg4 m4 s12" STYLE="position:relative; LEFT:900px; bottom:300px; WIDTH:620PX"></div> -->
+
+            <div class="card col lg4 m4 s12" STYLE="position:absolute; RIGHT:50px; TOP:2300px;">
+
+              
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="../media/wine_2.jpg">
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator grey-text text-darken-4">So, what does the matrix respresent??? <i class="material-icons right">more_vert</i></span>
+                  <!-- <p><a href="#">This is a link</a></p> -->
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                  <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+              </div>
+
+       
+
+
       </div>
-
+      </div>
     </div>
   </div>
 
-
+<!-- 
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
       <div class="container">
@@ -197,11 +204,12 @@
       </div>
     </div>
     <div class="parallax"><img src="../media/wine_3.jpg" alt="Unsplashed background img 3"></div>
-  </div>
+  </div>-->
 
   <footer class="page-footer teal">
     <div class="container">
-      <div class="row">
+      <div class="row"> 
+
         <!-- <div class="col l6 s4">
           <h5 class="white-text">Team Bio</h5>
           <p class="grey-text text-lighten-4">We are a team of data driven scientists that also have a taste for fine wine.</p> -->
@@ -229,16 +237,17 @@
       </div>
     </div>
     <div class="footer-copyright">
-      <div class="container">
+      <div class="container-fluid" style="padding-left: 25px">
         Made by <a class="brown-text text-lighten-3">Team Data Wientists</a>
       </div>
     </div>
   </footer>
 
 
-  <script src="../js/materialize.js"></script>
+  <script> var instance = M.Tabs.init(); </script>
   <script src="../js/init.js"></script>
   <script src="../js/flavor_notes.js"></script>
+  <script src="../js/materialize.js"></script>
 
 
 </body>

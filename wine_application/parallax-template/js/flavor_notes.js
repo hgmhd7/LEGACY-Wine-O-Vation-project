@@ -1,12 +1,15 @@
-var margin = {top: 80, right: 0, bottom: 10, left: 80},
-    width = 720,
-    height = 720;
+var margin = {top: 150, right: 300, bottom: 0, left: 300},
+    width = 760,
+    height = 760;
+
+    // width = 760,
+    // height = 760;
 
 var x = d3.scale.ordinal().rangeBands([0, width]),
     z = d3.scale.linear().domain([0, 4]).clamp(true),
     c = d3.scale.category10().domain(d3.range(10));
 
-var svg = d3.select('#test').append("svg")
+var svg = d3.select('#taste').append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .style("margin-left", -margin.left + "px")
@@ -104,14 +107,33 @@ d3.json("../js/miserables.json", function(miserables) {
     d3.selectAll(".column text").classed("active", function(d, i) { return i == p.x; });
   }
 
+ 
+
   function mouseout() {
     d3.selectAll("text").classed("active", false);
   }
 
-  d3.select("#order").on("change", function() {
+  // d3.select("#order").on("change", function() {
+  //   clearTimeout(timeout);
+  //   order(this.value);
+  // });
+
+  d3.select("#name").on("click", function() {
     clearTimeout(timeout);
-    order(this.value);
+    order("name");
   });
+
+  d3.select("#count").on("click", function() {
+    clearTimeout(timeout);
+    order("count");
+  });
+
+  d3.select("#cluster").on("click", function() {
+    clearTimeout(timeout);
+    order("group");
+    // d3.select.document.getElementById("cluster").node().focus();
+  });
+
 
   function order(value) {
     x.domain(orders[value]);
@@ -132,7 +154,7 @@ d3.json("../js/miserables.json", function(miserables) {
 
   var timeout = setTimeout(function() {
     order("group");
-    d3.select("#order").property("selectedIndex", 2).node().focus();
+    // d3.select("#name").property("selectedIndex", 2).node().focus();
   }, 5000);
 });
 
