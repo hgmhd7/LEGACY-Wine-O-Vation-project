@@ -13,6 +13,20 @@
     <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://d3js.org/d3.v2.min.js" charset="utf-8"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+
+
+
+    
+
+    <script>
+        $(document).ready(function () {
+            $('select').material_select();
+        });
+    </script>
+
+
 
 </head>
 
@@ -62,7 +76,33 @@
 
                 <div class="col lg12 m12 s12">
 
-<!-- 
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <label>Materialize Select</label>
+                                <select>
+                                    <option value="" disabled selected>Select Fruit</option>
+                                    <option value="1">Mango</option>
+                                    <option value="2">Orange</option>
+                                    <option value="3">Apple</option>
+                                </select>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col lg3 m3 s12">
+                                    <div class="icon-block">
+                                        <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+                                        <h5 class="center">The Story of Wine</h5>
+
+                                        <p class="light">Find out more about the drink we all know and love. Explore
+                                            interesting
+                                            findings that the
+                                            data show us about wine.</p>
+                                    </div>
+                                </div>
+
+                                <!-- 
                     <div class="card col lg4 m4 s12" STYLE="position:absolute; LEFT:200px; TOP:800px;">
 
 
@@ -83,15 +123,15 @@
                     </div> -->
 
 
+                            </div>
+                    </div>
+
                 </div>
             </div>
 
+
+
         </div>
-    </div>
-
-
-
-    </div>
     </div>
 
 
@@ -114,7 +154,7 @@
                 <div class="col s12 center">
 
 
-<!-- 
+                    <!-- 
 
                     <div class="card col lg4 m4 s12" STYLE="position:absolute; LEFT:200px; TOP:800px;">
 
@@ -164,10 +204,36 @@
     </footer>
 
 
-    <script> var instance = M.Tabs.init(); </script>
+    <!-- <script> var instance = M.Tabs.init(); </script> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="../js/init.js"></script>
     <script src="../js/flavor_notes.js"></script>
     <script src="../js/materialize.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+            $('.materialboxed').materialbox();
+            $('.parallax').parallax();
+            $('.tabs').tabs();
+            $('select').select();
+        });
+    </script>
+
+
+    <script>$(element).find('select').material_select();</script>
+    <!-- 
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>if (!window.jQuery) { document.write('<script src="bin/jquery-3.2.1.min.js"><\/script>'); }
+</script>
+<script src="docs/js/jquery.timeago.min.js"></script>
+<script src="docs/js/prism.js"></script>
+<script src="docs/js/lunr.min.js"></script>
+<script src="docs/js/search.js"></script>
+<script src="bin/materialize.js"></script>
+<script src="docs/js/init.js"></script> -->
 
 
 </body>
