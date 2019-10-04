@@ -16,7 +16,7 @@ var svg = d3.select('#taste').append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.json("../js/flavor_note_words.json", function(flavor_note_words) {
+d3.json("../static/js/flavor_note_words.json", function(flavor_note_words) {
 
   console.log(flavor_note_words)
   var matrix = [],

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wine-O Vataion</title>
+
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="../static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://d3js.org/d3.v2.min.js" charset="utf-8"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
+
+</head>
+
+
+<body>
+
+    <nav class="black" role="navigation">
+        <div class="nav-wrapper container-fluid">
+            <a id="logo-container" href="../static/media/wine_8.jpg" class="brand-logo">Data Wientist</a>
+            <ul class="right hide-on-med-and-down" style="padding-right: 30px">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="story_of_wine.html">THE STORY OF WINE</a></li>
+                <li><a href="flavor_notes.html">A MOUTHFUL</a></li>
+                <li><a href="virtual_sommelier.html">VIRTUAL SOMMELIER</a></li>
+                <li><a href="wine_recommender.html">YOUR RECOMMENDATION</a></li>
+            </ul>
+
+            <ul id="nav-mobile" class="sidenav">
+                <li><a href="#">Navbar Link</a></li>
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+
+
+    <div id="index-banner" class="parallax-container">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <br><br>
+                <h1 class="header center teal-text text-darken-2">Wine-O Vation</h1>
+                <div class="row center">
+                    <h5 class="header col s12 dark">brought to you by the Data Wientist</h5>
+                </div>
+                <br><br>
+
+            </div>
+        </div>
+        <div class="parallax"><img src="../static/media/wine_8.jpg" alt="Unsplashed background img 1"></div>
+    </div>
+
+
+    <div class="container">
+        <div class="section">
+
+            <!--   Icon Section   -->
+            <div class="row">
+
+                <div class="col lg12 m12 s12">
+
+
+
+
+                    <div class="row">
+                        <form class="col s12">
+
+
+                            <div class="row">
+                                <div class="col s12">
+                                    Enter the wines price in dollars (no cents eg. 20 for 20 dollars):
+                                    <div class="input-field inline">
+                                        <input id="number_inline" type="number" class="validate">
+                                        <label for="number_inline">Price in dollars. (4 to 3300)</label>
+                                        <span class="helper-text" data-error="wrong" data-success="right">validating response...</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <label>Country of Origin</label>
+                                    <select id="wine_type" name="wine_type"
+                                        onchange="change_wine_type(this.id, 'taste_notes')">
+                                        <option value="" disabled selected>select wine type</option>
+                                        <option value=0>Red</option>
+                                        <option value="1">White</option>
+                                        <option value="0">Rose</option>
+                                        <option value="Sparkling">Sparkling</option>
+                                    </select>
+                                </div>
+
+                                <div class="row">
+                                        <label>Wine Type</label>
+                                        <select id="wine_type" name="wine_type"
+                                            onchange="change_wine_type(this.id, 'taste_notes')">
+                                            <option value="" disabled selected>select wine type</option>
+                                            <option value="Red">Red</option>
+                                            <option value="White">White</option>
+                                            <option value="Rose">Rose</option>
+                                            <option value="Sparkling">Sparkling</option>
+                                        </select>
+                                    </div>
+
+                                <div class="row">
+                                    <label>Taste Notes</label>
+                                    <select id="taste_notes" name="taste_notes">
+
+                                    </select>
+
+                                    <script>
+                                        $(document).ready(function () {
+                                            $('#wine_type').formSelect();
+                                        });
+                                    </script>
+
+                                    <script>
+                                        function change_wine_type(type, taste) {
+
+                                            var type = document.getElementById(type);
+                                            var taste = document.getElementById(taste);
+                                            taste.innerHTML = "";
+
+                                            console.log(type.value)
+
+                                            if (type.value == "Red") {
+                                                var optionArray = ["|", "fruity_red|light, fruity", "balanced_red|medium-bodied, balanced", "full_red|full-bodied, robust", "other_red|other"];
+                                            } else if
+                                                (type.value == "White") {
+                                                var optionArray = ["|", "sweet_white|sweet, juicy, soft", "balanced_white|balanced/ complex", "dry_white|dry, briny, crisp, acidic", "other_white|other"];
+                                            } else if
+                                                (type.value == "Rose") {
+                                                var optionArray = ["|", "savory_rose|savory, balanced, complex", "dry_rose|dry, citris, acidic", "sweet_rose|sweet, wet, fruity, moderate acid", "other_rose|balanced/ other rose"];
+                                            } else if
+                                                (type.value == "Sparkling") {
+                                                var optionArray = ["|", "dry_white|dry, crisp, briny, acidic", "sweet_white|sweet, modest, fruity", "balanced_white|balanced, complex, moderate", "other_sparkling|other"];
+                                            }
+
+
+                                            for (var option in optionArray) {
+                                                var pair = optionArray[option].split("|");
+                                                var newOption = document.createElement("option");
+                                                console.log(optionArray)
+                                                newOption.value = pair[0];
+                                                console.log(pair)
+                                                newOption.innerHTML = pair[1];
+                                                taste.options.add(newOption);
+                                            }
+                                            $('#taste_notes').formSelect();
+                                        }
+                                    </script>
+                                </div>
+                            </div>
+
+<script>var input1 = d3.select("#wine_type").node().value;
+       console.log(input1);</script>
+
+
+
+                            <!-- <div class="row">
+                        <label>Wine Type</label>
+                        <select id="wine_type" name="wine_type" onchange="change_wine_type(this.id,'taste_notes')">
+                            <option value="" disabled selected>select wine type</option>
+                            <option value="Red">Red</option>
+                            <option value="White">White</option>
+                            <option value="Rose">Rose</option>
+                            <option value="Sparkling">Sparkling</option>
+                        </select>
+                    </div>
+
+                    <div class="row">
+                        <label>Taste Notes</label>
+                        <select id="taste_notes" name="taste_notes">
+
+                                <option value="" disabled selected>select wine type</option>
+                                <option value="Red">Red</option>
+                                <option value="White">White</option>
+                                <option value="Rose">Rose</option>
+                                <option value="Sparkling">Sparkling</option>
+
+                        </select>
+                    </div> -->
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+    <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h5 class="header col s12 light">A look into the world of wine from the scienctific perspective.
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax"><img src="../static/media/wine_2.jpg" alt="Unsplashed background img 2"></div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+
+            <div class="row">
+                <div class="col s12 center">
+
+
+                    <!-- 
+
+                    <div class="card col lg4 m4 s12" STYLE="position:absolute; LEFT:200px; TOP:800px;">
+
+
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="../media/sangria-4469554.png">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Wine Word-Cloud<i
+                                    class="material-icons right">more_vert</i></span>
+                         
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Taste Notes Galore...<i
+                                    class="material-icons right">close</i></span>
+                            <p>The bottle to the right uniquely displays some of the commmon words used to describe the
+                                wines in the
+                                data set. In fact, the bottle and glasses started out as the picture you see here in on
+                                the
+                                title card. We transposed the words onto a mask of a wine glass and bottles for added
+                                effect. Which of
+                                these words describe your favorite types of wine???
+                            </p>
+                        </div>
+                    </div> -->
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="page-footer teal">
+        <div class="container">
+            <div class="row">
+
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container-fluid" style="padding-left: 25px">
+                Made by <a class="brown-text text-lighten-3">Team Data Wientists</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- <script> var instance = M.Tabs.init(); </script> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="../static/js/init.js"></script>
+    <script src="../static/js/materialize.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('select').formSelect();
+
+        });
+    </script>
+
+
+
+</body>
+
+</html>
