@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+
+
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Wine-O Vataion</title>
@@ -70,101 +73,150 @@
 
 
 
-
                     <div class="row">
                         <form class="col s12">
+
+
+                            <div class="row">
+                                <label>Wine Type</label>
+                                <select id="wine_type" name="wine_type"
+                                    onchange="change_wine_type(this.id, 'taste_notes'),  formChanged(this.value)">
+                                    <option value="" disabled selected>select wine type</option>
+                                    <option value="Red">Red</option>
+                                    <option value="White">White</option>
+                                    <option value="Rose">Rose</option>
+                                    <option value="Sparkling">Sparkling</option>
+                                </select>
+                            </div>
+
+
+
+                            <div class="row" onchange="formChanged(this.value)">
+                                <label>Taste Notes</label>
+                                <select id="taste_notes" name="taste_notes">
+                                    <option value="" disabled selected>select wine taste notes</option>
+                                </select>
+                            </div>
+
+
+
+
+                            <div class="row">
+                                <label>Country of Origin</label>
+                                <select id="wine_country" name="wine_country" onchange="formChanged(this.value)">
+                                    <option value="" disabled selected>select wine country</option>
+                                    <option value=0>Argentina</option>
+                                    <option value=0>Australia</option>
+                                    <option value=1>Austria</option>
+                                    <option value=0>Brazil</option>
+                                    <option value=0>Bulgaria</option>
+                                    <option value=0>Canada</option>
+                                    <option value=0>Chile</option>
+                                    <option value=0>France</option>
+                                    <option value=0>Germany</option>
+                                    <option value=0>Greese</option>
+                                    <option value=0>Hungary</option>
+                                    <option value=0>Israel</option>
+                                    <option value=0>Italy</option>
+                                    <option value=0>Lebanon</option>
+                                    <option value=0>Mexico</option>
+                                    <option value=0>Maldova</option>
+                                    <option value=0>Moroco</option>
+                                    <option value=0>New Zealand</option>
+                                    <option value=0>Portugal</option>
+                                    <option value=0>Romania</option>
+                                    <option value=0>Slovenia</option>
+                                    <option value=0>South Africa</option>
+                                    <option value=0>Spain</option>
+                                    <option value=0>Turkey</option>
+                                    <option value=0>Uruguay</option>
+                                    <option value=0>United States</option>
+                                </select>
+                            </div>
+
 
 
                             <div class="row">
                                 <div class="col s12">
                                     Enter the wines price in dollars (no cents eg. 20 for 20 dollars):
                                     <div class="input-field inline">
-                                        <input id="number_inline" type="number" class="validate">
-                                        <label for="number_inline">Price in dollars. (4 to 3300)</label>
-                                        <span class="helper-text" data-error="wrong" data-success="right">validating response...</span>
+                                        <input id="number_inline" type="number" class="validate"
+                                            onchange="formChanged(this.value)">
+                                        <label for="number_inline">Price in dollars. (4 to 150)</label>
+                                        <span class="helper-text" data-error="wrong" data-success="right">validating
+                                            response...</span>
                                     </div>
-                                </div>
-
-                                <div class="row">
-                                    <label>Country of Origin</label>
-                                    <select id="wine_type" name="wine_type"
-                                        onchange="change_wine_type(this.id, 'taste_notes')">
-                                        <option value="" disabled selected>select wine type</option>
-                                        <option value=0>Red</option>
-                                        <option value="1">White</option>
-                                        <option value="0">Rose</option>
-                                        <option value="Sparkling">Sparkling</option>
-                                    </select>
-                                </div>
-
-                                <div class="row">
-                                        <label>Wine Type</label>
-                                        <select id="wine_type" name="wine_type"
-                                            onchange="change_wine_type(this.id, 'taste_notes')">
-                                            <option value="" disabled selected>select wine type</option>
-                                            <option value="Red">Red</option>
-                                            <option value="White">White</option>
-                                            <option value="Rose">Rose</option>
-                                            <option value="Sparkling">Sparkling</option>
-                                        </select>
-                                    </div>
-
-                                <div class="row">
-                                    <label>Taste Notes</label>
-                                    <select id="taste_notes" name="taste_notes">
-
-                                    </select>
-
-                                    <script>
-                                        $(document).ready(function () {
-                                            $('#wine_type').formSelect();
-                                        });
-                                    </script>
-
-                                    <script>
-                                        function change_wine_type(type, taste) {
-
-                                            var type = document.getElementById(type);
-                                            var taste = document.getElementById(taste);
-                                            taste.innerHTML = "";
-
-                                            console.log(type.value)
-
-                                            if (type.value == "Red") {
-                                                var optionArray = ["|", "fruity_red|light, fruity", "balanced_red|medium-bodied, balanced", "full_red|full-bodied, robust", "other_red|other"];
-                                            } else if
-                                                (type.value == "White") {
-                                                var optionArray = ["|", "sweet_white|sweet, juicy, soft", "balanced_white|balanced/ complex", "dry_white|dry, briny, crisp, acidic", "other_white|other"];
-                                            } else if
-                                                (type.value == "Rose") {
-                                                var optionArray = ["|", "savory_rose|savory, balanced, complex", "dry_rose|dry, citris, acidic", "sweet_rose|sweet, wet, fruity, moderate acid", "other_rose|balanced/ other rose"];
-                                            } else if
-                                                (type.value == "Sparkling") {
-                                                var optionArray = ["|", "dry_white|dry, crisp, briny, acidic", "sweet_white|sweet, modest, fruity", "balanced_white|balanced, complex, moderate", "other_sparkling|other"];
-                                            }
-
-
-                                            for (var option in optionArray) {
-                                                var pair = optionArray[option].split("|");
-                                                var newOption = document.createElement("option");
-                                                console.log(optionArray)
-                                                newOption.value = pair[0];
-                                                console.log(pair)
-                                                newOption.innerHTML = pair[1];
-                                                taste.options.add(newOption);
-                                            }
-                                            $('#taste_notes').formSelect();
-                                        }
-                                    </script>
                                 </div>
                             </div>
 
-<script>var input1 = d3.select("#wine_type").node().value;
-       console.log(input1);</script>
+
+                            <div><button class="btn waves-effect waves-light center" type="submit" name="action">Submit
+                                    <i class="material-icons right">send</i>
+                                </button></div>
 
 
 
-                            <!-- <div class="row">
+
+                            <script>
+                                $(document).ready(function () {
+                                    $('#wine_type').formSelect();
+                                    $('#wine_country').formSelect();
+                                    $('#number_inline').formSelect();
+                                });
+                            </script>
+
+
+
+
+                            <script>
+                                function change_wine_type(type, taste) {
+
+                                    var type = document.getElementById(type);
+                                    var taste = document.getElementById(taste);
+                                    taste.innerHTML = "";
+
+                                    // console.log(type.value)
+
+                                    if (type.value == "Red") {
+                                        var optionArray = ["|", "1|light, fruity", "0|medium-bodied, balanced", "0|full-bodied, robust", "0|other"];
+                                    } else if
+                                        (type.value == "White") {
+                                        var optionArray = ["|", "0|sweet, juicy, soft", "0|balanced/ complex", "0|dry, briny, crisp, acidic", "0|other"];
+                                    } else if
+                                        (type.value == "Rose") {
+                                        var optionArray = ["|", "0|savory, balanced, complex", "0|dry, citris, acidic", "0|sweet, wet, fruity, moderate acid", "0|balanced/ other rose"];
+                                    } else if
+                                        (type.value == "Sparkling") {
+                                        var optionArray = ["|", "0|dry, crisp, briny, acidic", "0|sweet, modest, fruity", "0|balanced, complex, moderate", "0|other"];
+                                    }
+
+
+                                    for (var option in optionArray) {
+                                        var pair = optionArray[option].split("|");
+                                        var newOption = document.createElement("option");
+                                        // console.log(optionArray)
+                                        newOption.value = pair[0];
+                                        // console.log(pair)
+                                        newOption.innerHTML = pair[1];
+                                        taste.options.add(newOption);
+                                    }
+                                    $('#taste_notes').formSelect();
+
+
+
+                                }
+                            </script>
+                        </form>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <!-- <div class="row">
                         <label>Wine Type</label>
                         <select id="wine_type" name="wine_type" onchange="change_wine_type(this.id,'taste_notes')">
                             <option value="" disabled selected>select wine type</option>
@@ -187,15 +239,15 @@
 
                         </select>
                     </div> -->
-                    </div>
-
-
-                </div>
             </div>
 
 
-
         </div>
+    </div>
+
+
+
+    </div>
     </div>
 
 
@@ -286,7 +338,7 @@
         });
     </script>
 
-
+    <script src="../static/js/get_wine_rating.js"></script>
 
 </body>
 
