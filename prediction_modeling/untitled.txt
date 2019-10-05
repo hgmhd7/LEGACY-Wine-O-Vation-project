@@ -1,0 +1,3 @@
+We located our dataset via Kaggle at https://www.kaggle.com/zynicide/wine-reviews/. This dataset was scraped from winemag.com - WineEnthusiast Magazine's website. Among the data scraped were the price of the wine per bottle, the review score given to each wine, and the description. 
+
+Along with the geographi
