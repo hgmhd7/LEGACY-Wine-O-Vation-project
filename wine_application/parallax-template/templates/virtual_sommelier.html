@@ -3,13 +3,9 @@
 
 <head>
 
-
-
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Wine-O Vataion</title>
-
-
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
@@ -21,8 +17,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-
-
 </head>
 
 
@@ -32,11 +26,11 @@
         <div class="nav-wrapper container-fluid">
             <a id="logo-container" href="../static/media/wine_8.jpg" class="brand-logo">Data Wientist</a>
             <ul class="right hide-on-med-and-down" style="padding-right: 30px">
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="story_of_wine.html">THE STORY OF WINE</a></li>
-                <li><a href="flavor_notes.html">A MOUTHFUL</a></li>
-                <li><a href="virtual_sommelier.html">VIRTUAL SOMMELIER</a></li>
-                <li><a href="wine_recommender.html">YOUR RECOMMENDATION</a></li>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/story_of_wine">THE STORY OF WINE</a></li>
+                <li><a href="/flavor_notes">A MOUTHFUL</a></li>
+                <li><a href="/virtual_sommelier">VIRTUAL SOMMELIER</a></li>
+                <li><a href="/wine_recommender">YOUR RECOMMENDATION</a></li>
             </ul>
 
             <ul id="nav-mobile" class="sidenav">
@@ -74,13 +68,17 @@
 
 
                     <div class="row">
-                        <form class="col s12">
+
+                        <h4>Fill in info for ALL fields, submit, and scroll down to see what "JSON"melier thinks about
+                            your pick...</h4>
+
+                        <form action="{{ url_for('predict_wine_score')}}" method="POST">
 
 
                             <div class="row">
                                 <label>Wine Type</label>
                                 <select id="wine_type" name="wine_type"
-                                    onchange="change_wine_type(this.id, 'taste_notes'),  formChanged(this.value)">
+                                    onchange="change_wine_type(this.id, 'taste_notes')">
                                     <option value="" disabled selected>select wine type</option>
                                     <option value="Red">Red</option>
                                     <option value="White">White</option>
@@ -91,7 +89,7 @@
 
 
 
-                            <div class="row" onchange="formChanged(this.value)">
+                            <div class="row">
                                 <label>Taste Notes</label>
                                 <select id="taste_notes" name="taste_notes">
                                     <option value="" disabled selected>select wine taste notes</option>
@@ -103,34 +101,34 @@
 
                             <div class="row">
                                 <label>Country of Origin</label>
-                                <select id="wine_country" name="wine_country" onchange="formChanged(this.value)">
+                                <select id="wine_country" name="wine_country">
                                     <option value="" disabled selected>select wine country</option>
-                                    <option value=0>Argentina</option>
-                                    <option value=0>Australia</option>
-                                    <option value=1>Austria</option>
-                                    <option value=0>Brazil</option>
-                                    <option value=0>Bulgaria</option>
-                                    <option value=0>Canada</option>
-                                    <option value=0>Chile</option>
-                                    <option value=0>France</option>
-                                    <option value=0>Germany</option>
-                                    <option value=0>Greese</option>
-                                    <option value=0>Hungary</option>
-                                    <option value=0>Israel</option>
-                                    <option value=0>Italy</option>
-                                    <option value=0>Lebanon</option>
-                                    <option value=0>Mexico</option>
-                                    <option value=0>Maldova</option>
-                                    <option value=0>Moroco</option>
-                                    <option value=0>New Zealand</option>
-                                    <option value=0>Portugal</option>
-                                    <option value=0>Romania</option>
-                                    <option value=0>Slovenia</option>
-                                    <option value=0>South Africa</option>
-                                    <option value=0>Spain</option>
-                                    <option value=0>Turkey</option>
-                                    <option value=0>Uruguay</option>
-                                    <option value=0>United States</option>
+                                    <option value="Argentina">Argentina</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="Austria">Austria</option>
+                                    <option value="Brazil">Brazil</option>
+                                    <option value="Bulgaria">Bulgaria</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="Chile">Chile</option>
+                                    <option value="France">France</option>
+                                    <option value="Germany">Germany</option>
+                                    <option value="Greese">Greese</option>
+                                    <option value="Hungary">Hungary</option>
+                                    <option value="Israel">Israel</option>
+                                    <option value="Italy">Italy</option>
+                                    <option value="Lebanon">Lebanon</option>
+                                    <option value="Mexico">Mexico</option>
+                                    <option value="Maldova">Maldova</option>
+                                    <option value="Moroco">Moroco</option>
+                                    <option value="New Zealand">New Zealand</option>
+                                    <option value="Portugal">Portugal</option>
+                                    <option value="Romania">Romania</option>
+                                    <option value="Slovenia">Slovenia</option>
+                                    <option value="South Africa">South Africa</option>
+                                    <option value="Spain">Spain</option>
+                                    <option value="Turkey">Turkey</option>
+                                    <option value="Uruguay">Uruguay</option>
+                                    <option value="United States">United States</option>
                                 </select>
                             </div>
 
@@ -140,9 +138,8 @@
                                 <div class="col s12">
                                     Enter the wines price in dollars (no cents eg. 20 for 20 dollars):
                                     <div class="input-field inline">
-                                        <input id="number_inline" type="number" class="validate"
-                                            onchange="formChanged(this.value)">
-                                        <label for="number_inline">Price in dollars. (4 to 150)</label>
+                                        <input id="number_inline" type="number" class="validate" name="wine_price">
+                                        <label for="number_inline">Price in dollars. (4 to 3300)</label>
                                         <span class="helper-text" data-error="wrong" data-success="right">validating
                                             response...</span>
                                     </div>
@@ -150,22 +147,22 @@
                             </div>
 
 
-                            <div><button class="btn waves-effect waves-light center" type="submit" name="action">Submit
-                                    <i class="material-icons right">send</i>
-                                </button></div>
-
-
-
 
                             <script>
                                 $(document).ready(function () {
                                     $('#wine_type').formSelect();
+                                    $('#taste_notes').formSelect();
                                     $('#wine_country').formSelect();
-                                    $('#number_inline').formSelect();
+                                    $('#wine_price').formSelect();
                                 });
                             </script>
 
 
+                            <script>
+                            function gotoBottom(){
+                            var element = document.getElementById(score_card);
+                            element.scrollTop = element.scrollHeight - element.clientHeight;}
+                            </script>
 
 
                             <script>
@@ -178,16 +175,16 @@
                                     // console.log(type.value)
 
                                     if (type.value == "Red") {
-                                        var optionArray = ["|", "1|light, fruity", "0|medium-bodied, balanced", "0|full-bodied, robust", "0|other"];
+                                        var optionArray = ["|", "light, fruity|light, fruity", "medium-bodied, balanced|medium-bodied, balanced", "full-bodied, robust|full-bodied, robust", "other|other"];
                                     } else if
                                         (type.value == "White") {
-                                        var optionArray = ["|", "0|sweet, juicy, soft", "0|balanced/ complex", "0|dry, briny, crisp, acidic", "0|other"];
+                                        var optionArray = ["|", "sweet, juicy, soft|sweet, juicy, soft", "balanced/ complex|balanced/ complex", "dry, briny, crisp, acidic|dry, briny, crisp, acidic", "other|other"];
                                     } else if
                                         (type.value == "Rose") {
-                                        var optionArray = ["|", "0|savory, balanced, complex", "0|dry, citris, acidic", "0|sweet, wet, fruity, moderate acid", "0|balanced/ other rose"];
+                                        var optionArray = ["|", "savory, balanced, complex|savory, balanced, complex", "dry, citris, acidic|dry, citris, acidic", "sweet, wet, fruity, moderate acid|sweet, wet, fruity, moderate acid", "balanced/ other rose|balanced/ other rose"];
                                     } else if
                                         (type.value == "Sparkling") {
-                                        var optionArray = ["|", "0|dry, crisp, briny, acidic", "0|sweet, modest, fruity", "0|balanced, complex, moderate", "0|other"];
+                                        var optionArray = ["|", "dry, crisp, briny, acidic|dry, crisp, briny, acidic", "sweet, modest, fruity|sweet, modest, fruity", "balanced, complex, moderate|balanced, complex, moderate", "other|other"];
                                     }
 
 
@@ -206,49 +203,34 @@
 
                                 }
                             </script>
+
+
+
+                            <div><button class="btn waves-effect waves-light center" type="submit" name="action" onclick="gotoBottom()">Predict
+                                    Wine Score
+                                    <i class="material-icons right">send</i>
+                                </button></div>
+
+                            <!-- <div class="progress"></div>
+                                    <div class="indeterminate"></div>
+                                </div> -->
                         </form>
                     </div>
                 </div>
 
+                <!-- <script>console.log("{{testing_1}}")</script> -->
+                <script>console.log("{{wine_type}}")</script>
+                <script>console.log("{{taste_notes}}")</script>
+                <script>console.log("{{wine_country}}")</script>
+                <script>console.log("{{wine_price}}")</script>
+                <script>console.log("{{feed_AI}}")</script>
+                <script>console.log("{{predicted_score}}")</script>
 
-
-
-
-
-
-                <!-- <div class="row">
-                        <label>Wine Type</label>
-                        <select id="wine_type" name="wine_type" onchange="change_wine_type(this.id,'taste_notes')">
-                            <option value="" disabled selected>select wine type</option>
-                            <option value="Red">Red</option>
-                            <option value="White">White</option>
-                            <option value="Rose">Rose</option>
-                            <option value="Sparkling">Sparkling</option>
-                        </select>
-                    </div>
-
-                    <div class="row">
-                        <label>Taste Notes</label>
-                        <select id="taste_notes" name="taste_notes">
-
-                                <option value="" disabled selected>select wine type</option>
-                                <option value="Red">Red</option>
-                                <option value="White">White</option>
-                                <option value="Rose">Rose</option>
-                                <option value="Sparkling">Sparkling</option>
-
-                        </select>
-                    </div> -->
             </div>
-
-
         </div>
     </div>
 
 
-
-    </div>
-    </div>
 
 
     <div class="parallax-container valign-wrapper">
@@ -263,48 +245,47 @@
         <div class="parallax"><img src="../static/media/wine_2.jpg" alt="Unsplashed background img 2"></div>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="section">
 
             <div class="row">
-                <div class="col s12 center">
+                <div class="col lg12 md12 s12 " style="padding-left: 567px">
+
+                    <div class="card large col lg4 m4 s12 center" style="width: 1000px; height: 900px" id="score_card">
 
 
-                    <!-- 
-
-                    <div class="card col lg4 m4 s12" STYLE="position:absolute; LEFT:200px; TOP:800px;">
-
-
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator" src="../media/sangria-4469554.png">
+                        <div class="card-image waves-effect waves-block waves-light center">
+                            <img class="activator" src="../static/media/wine_4.jpg">
                         </div>
                         <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Wine Word-Cloud<i
-                                    class="material-icons right">more_vert</i></span>
-                         
+                            <span class="card-title">
+                                <h5>And the score is...</h5> <br><br>
+                                <h1>{{predicted_score}}</h1> <br>
+                                <h5>Click the above picture to look at the details of your selection...</h5>
+                            </span>
                         </div>
                         <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">Taste Notes Galore...<i
-                                    class="material-icons right">close</i></span>
-                            <p>The bottle to the right uniquely displays some of the commmon words used to describe the
-                                wines in the
-                                data set. In fact, the bottle and glasses started out as the picture you see here in on
-                                the
-                                title card. We transposed the words onto a mask of a wine glass and bottles for added
-                                effect. Which of
-                                these words describe your favorite types of wine???
-                            </p>
+                            <span class="card-title grey-text text-darken-4"><h4>Wine Type: {{wine_type}} </h4> <br><br>
+                                                                             <h4>Taste Notes/ Descriptors: {{taste_notes}} </h4> <br><br>
+                                                                             <h4>Country of Origin: {{wine_country}} </h4> <br><br>
+                                                                             <h4>Wine Price: ${{wine_price}} </h4> <br><br>
+                                                                             <h4>Verdict:  {{message}} </h4>
+
+                                                                             <!-- <h4>Type: </h4><h4>{{wine_type}} </h4> <br><br>
+                                                                             <h4>Taste Notes/ Descriptors: </h4><h4>{{taste_notes}} </h4> <br><br>
+                                                                             <h4>Country of Origin: <h4><h4>{{wine_country}} </h4> <br><br>
+                                                                             <h4>Wine Price:  </h4><h4>${{wine_price}} </h4> <br><br>
+                                                                             <h4>Verdict:  </h4><h4>{{message}} </h4> -->
+
+                                <i class="material-icons right">close</i></span>
+
                         </div>
-                    </div> -->
-
-
-
-
-
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 
     <footer class="page-footer teal">
         <div class="container">
@@ -318,6 +299,7 @@
             </div>
         </div>
     </footer>
+
 
 
     <!-- <script> var instance = M.Tabs.init(); </script> -->
@@ -337,8 +319,6 @@
 
         });
     </script>
-
-    <script src="../static/js/get_wine_rating.js"></script>
 
 </body>
 
