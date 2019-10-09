@@ -22,7 +22,7 @@
 
     <nav class="black" role="navigation">
         <div class="nav-wrapper container-fluid">
-            <a id="logo-container" href="../static/media/wine_8.jpg" class="brand-logo">Data Wientist</a>
+            <a id="logo-container" href="../static/media/wine_8.jpg" class="brand-logo">Data Winetists</a>
             <ul class="right hide-on-med-and-down" style="padding-right: 30px">
                 <li><a href="/">HOME</a></li>
                 <li><a href="/story_of_wine">THE STORY OF WINE</a></li>
@@ -66,10 +66,9 @@
                         <form action="{{ url_for('recommend_wines')}}" method="POST">
 
                             <div class="row">
-
                                 <label>Wine Type</label>
                                 <select id="wine_type" name="wine_type"
-                                    onchange="change_wine_type(this.id, 'taste_notes'),  formChanged(this.value)">
+                                    onchange="change_wine_type(this.id, 'taste_notes')">
                                     <option value="" disabled selected>select wine type</option>
                                     <option value="Red">Red</option>
                                     <option value="White">White</option>
@@ -80,7 +79,7 @@
 
 
 
-                            <div class="row" onchange="formChanged(this.value)">
+                            <div class="row">
                                 <label>Taste Notes</label>
                                 <select id="taste_notes" name="taste_notes">
                                     <option value="" disabled selected>select wine taste notes</option>
@@ -92,40 +91,38 @@
 
                             <div class="row">
                                 <label>Country of Origin</label>
-                                <select id="wine_country" name="wine_country" onchange="formChanged(this.value)">
+                                <select id="wine_country" name="wine_country">
                                     <option value="" disabled selected>select wine country</option>
-                                    <option value=0>Argentina</option>
-                                    <option value=0>Australia</option>
-                                    <option value=1>Austria</option>
-                                    <option value=0>Brazil</option>
-                                    <option value=0>Bulgaria</option>
-                                    <option value=0>Canada</option>
-                                    <option value=0>Chile</option>
-                                    <option value=0>France</option>
-                                    <option value=0>Germany</option>
-                                    <option value=0>Greese</option>
-                                    <option value=0>Hungary</option>
-                                    <option value=0>Israel</option>
-                                    <option value=0>Italy</option>
-                                    <option value=0>Lebanon</option>
-                                    <option value=0>Mexico</option>
-                                    <option value=0>Maldova</option>
-                                    <option value=0>Moroco</option>
-                                    <option value=0>New Zealand</option>
-                                    <option value=0>Portugal</option>
-                                    <option value=0>Romania</option>
-                                    <option value=0>Slovenia</option>
-                                    <option value=0>South Africa</option>
-                                    <option value=0>Spain</option>
-                                    <option value=0>Turkey</option>
-                                    <option value=0>Uruguay</option>
-                                    <option value=0>United States</option>
+                                    <option value="Argentina">Argentina</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="Austria">Austria</option>
+                                    <option value="Brazil">Brazil</option>
+                                    <option value="Bulgaria">Bulgaria</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="Chile">Chile</option>
+                                    <option value="France">France</option>
+                                    <option value="Germany">Germany</option>
+                                    <option value="Greese">Greese</option>
+                                    <option value="Hungary">Hungary</option>
+                                    <option value="Israel">Israel</option>
+                                    <option value="Italy">Italy</option>
+                                    <option value="Lebanon">Lebanon</option>
+                                    <option value="Mexico">Mexico</option>
+                                    <option value="Maldova">Maldova</option>
+                                    <option value="Moroco">Moroco</option>
+                                    <option value="New Zealand">New Zealand</option>
+                                    <option value="Portugal">Portugal</option>
+                                    <option value="Romania">Romania</option>
+                                    <option value="Slovenia">Slovenia</option>
+                                    <option value="South Africa">South Africa</option>
+                                    <option value="Spain">Spain</option>
+                                    <option value="Turkey">Turkey</option>
+                                    <option value="Uruguay">Uruguay</option>
+                                    <option value="United States">United States</option>
                                 </select>
                             </div>
 
-
-
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col s12">
                                     Enter the wines price in dollars (no cents eg. 20 for 20 dollars):
                                     <div class="input-field inline">
@@ -136,7 +133,7 @@
                                             response...</span>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
 
                             <script>
@@ -160,16 +157,16 @@
                                     // console.log(type.value)
 
                                     if (type.value == "Red") {
-                                        var optionArray = ["|", "1|light, fruity", "0|medium-bodied, balanced", "0|full-bodied, robust", "0|other"];
+                                        var optionArray = ["|", "light, fruity|light, fruity", "medium-bodied, balanced|medium-bodied, balanced", "full-bodied, robust|full-bodied, robust", "other|other"];
                                     } else if
                                         (type.value == "White") {
-                                        var optionArray = ["|", "0|sweet, juicy, soft", "0|balanced/ complex", "0|dry, briny, crisp, acidic", "0|other"];
+                                        var optionArray = ["|", "sweet, juicy, soft|sweet, juicy, soft", "balanced/ complex|balanced/ complex", "dry, briny, crisp, acidic|dry, briny, crisp, acidic", "other|other"];
                                     } else if
                                         (type.value == "Rose") {
-                                        var optionArray = ["|", "0|savory, balanced, complex", "0|dry, citris, acidic", "0|sweet, wet, fruity, moderate acid", "0|balanced/ other rose"];
+                                        var optionArray = ["|", "savory, balanced, complex|savory, balanced, complex", "dry, citris, acidic|dry, citris, acidic", "sweet, wet, fruity, moderate acid|sweet, wet, fruity, moderate acid", "balanced/ other rose|balanced/ other rose"];
                                     } else if
                                         (type.value == "Sparkling") {
-                                        var optionArray = ["|", "0|dry, crisp, briny, acidic", "0|sweet, modest, fruity", "0|balanced, complex, moderate", "0|other"];
+                                        var optionArray = ["|", "dry, crisp, briny, acidic|dry, crisp, briny, acidic", "sweet, modest, fruity|sweet, modest, fruity", "balanced, complex, moderate|balanced, complex, moderate", "other|other"];
                                     }
 
 
@@ -196,8 +193,10 @@
                         </form>
                     </div>
                 </div>
-
-                <script>console.log("{{testing_2}}")</script>
+                
+                <script>console.log("{{taste_notes}}")</script>
+                <script>console.log("{{wine_type}}")</script>
+                <script>console.log("{{wine_country}}")</script>
                 <script>console.log("{{wine_list_jsonified}}")</script>
 
             </div>
@@ -280,6 +279,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="../static/js/init.js"></script>
     <script src="../static/js/materialize.js"></script>
+    <!-- <script src="../static/js/get_recommendations.js"></script> -->
 
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>

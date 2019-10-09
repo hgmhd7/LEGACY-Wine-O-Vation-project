@@ -24,7 +24,7 @@
 
     <nav class="black" role="navigation">
         <div class="nav-wrapper container-fluid">
-            <a id="logo-container" href="../static/media/wine_8.jpg" class="brand-logo">Data Wientist</a>
+            <a id="logo-container" href="../static/media/wine_8.jpg" class="brand-logo">Data Winetists</a>
             <ul class="right hide-on-med-and-down" style="padding-right: 30px">
                 <li><a href="/">HOME</a></li>
                 <li><a href="/story_of_wine">THE STORY OF WINE</a></li>
@@ -47,7 +47,7 @@
                 <br><br>
                 <h1 class="header center teal-text text-darken-2">Wine-O Vation</h1>
                 <div class="row center">
-                    <h5 class="header col s12 dark">brought to you by the Data Wientist</h5>
+                    <h5 class="header col s12 dark">brought to you by the Data Winetists</h5>
                 </div>
                 <br><br>
 
@@ -72,7 +72,7 @@
                         <h4>Fill in info for ALL fields, submit, and scroll down to see what "JSON"melier thinks about
                             your pick...</h4>
 
-                        <form action="{{ url_for('predict_wine_score')}}" method="POST">
+                        <form action="{{ url_for('predict_wine_score')}}" id="form" method="POST">
 
 
                             <div class="row">
@@ -159,10 +159,26 @@
 
 
                             <script>
-                            function gotoBottom(){
-                            var element = document.getElementById(score_card);
-                            element.scrollTop = element.scrollHeight - element.clientHeight;}
+                                function gotoBottom() {
+                                    var element = document.getElementById(score_card);
+                                    element.scrollTop = element.scrollHeight - element.clientHeight;
+                                }
                             </script>
+
+
+
+                            <script>$('#form').submit(function () {
+                                    $.ajax({
+                                        url: '/virtual_sommelier',
+                                        data: 'some_data=somevalue',
+                                        success: function (response) {
+                                            // it was a success!
+                                        }
+                                        error: function () {
+                                            // it was an error!
+                                        }
+                                    });
+                                });</script>
 
 
                             <script>
@@ -206,7 +222,8 @@
 
 
 
-                            <div><button class="btn waves-effect waves-light center" type="submit" name="action" onclick="gotoBottom()">Predict
+                            <div><button class="btn waves-effect waves-light center" type="submit" name="action"
+                                    onclick="gotoBottom()">Predict
                                     Wine Score
                                     <i class="material-icons right">send</i>
                                 </button></div>
@@ -265,19 +282,21 @@
                             </span>
                         </div>
                         <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4"><h4>Wine Type: {{wine_type}} </h4> <br><br>
-                                                                             <h4>Taste Notes/ Descriptors: {{taste_notes}} </h4> <br><br>
-                                                                             <h4>Country of Origin: {{wine_country}} </h4> <br><br>
-                                                                             <h4>Wine Price: ${{wine_price}} </h4> <br><br>
-                                                                             <h4>Verdict:  {{message}} </h4>
+                            <span class="card-title grey-text text-darken-4">
+                                <h4>Wine Type: {{wine_type}} </h4> <br><br>
+                                <h4>Taste Notes/ Descriptors: {{taste_notes}} </h4> <br><br>
+                                <h4>Country of Origin: {{wine_country}} </h4> <br><br>
+                                <h4>Wine Price: ${{wine_price}} </h4> <br><br>
+                                <h4>Verdict: {{message}} </h4>
 
-                                                                             <!-- <h4>Type: </h4><h4>{{wine_type}} </h4> <br><br>
+                                <!-- <h4>Type: </h4><h4>{{wine_type}} </h4> <br><br>
                                                                              <h4>Taste Notes/ Descriptors: </h4><h4>{{taste_notes}} </h4> <br><br>
                                                                              <h4>Country of Origin: <h4><h4>{{wine_country}} </h4> <br><br>
                                                                              <h4>Wine Price:  </h4><h4>${{wine_price}} </h4> <br><br>
                                                                              <h4>Verdict:  </h4><h4>{{message}} </h4> -->
 
-                                <i class="material-icons right">close</i></span>
+                                <i class="material-icons right">close</i>
+                            </span>
 
                         </div>
                     </div>
@@ -295,7 +314,7 @@
         </div>
         <div class="footer-copyright">
             <div class="container-fluid" style="padding-left: 25px">
-                Made by <a class="brown-text text-lighten-3">Team Data Wientists</a>
+                Made by <a class="brown-text text-lighten-3">Team Data Winetists</a>
             </div>
         </div>
     </footer>

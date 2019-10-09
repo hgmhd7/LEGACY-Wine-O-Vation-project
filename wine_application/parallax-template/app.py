@@ -173,11 +173,13 @@ def predict_wine_score():
 
 
 
-
-@app.route('/recommend_wines',methods=["POST"])
+@app.route('/recommend_wines', methods=["POST"])
 
 def recommend_wines():
 
+    taste_notes = request.form['taste_notes']
+    wine_type = request.form['wine_type']
+    wine_country = request.form['wine_country']
    # Use Pandas to perform the sql queryclear
     stmt = db.session.query(master_wine_table).statement
     df = pd.read_sql_query(stmt, db.session.bind)
@@ -187,7 +189,23 @@ def recommend_wines():
 
     test_2 = "test_2_value..."
 
-    return render_template('wine_recommender.html', testing_2=test_2, wine_list_jsonified=wine_list_jsonified)
+    return render_template('wine_recommender.html', taste_notes=taste_notes, wine_type=wine_type, wine_country=wine_country, wine_list_jsonified=wine_list_jsonified)
+
+
+# @app.route('/recommend_wines',methods=["POST"])
+
+# def recommend_wines():
+
+#    # Use Pandas to perform the sql queryclear
+#     stmt = db.session.query(master_wine_table).statement
+#     df = pd.read_sql_query(stmt, db.session.bind)
+
+#     wine_list = df.to_dict(orient='records')
+#     wine_list_jsonified = jsonify(wine_list)
+
+#     test_2 = "test_2_value..."
+
+#     return render_template('wine_recommender.html', testing_2=test_2, wine_list_jsonified=wine_list_jsonified)
 
 
 #     #prediction function
