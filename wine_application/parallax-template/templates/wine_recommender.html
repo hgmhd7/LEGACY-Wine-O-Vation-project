@@ -101,9 +101,10 @@
                                     <option value=0>Bulgaria</option>
                                     <option value=0>Canada</option>
                                     <option value=0>Chile</option>
+                                    <option value=0>England</option>
                                     <option value=0>France</option>
                                     <option value=0>Germany</option>
-                                    <option value=0>Greese</option>
+                                    <option value=0>Greece</option>
                                     <option value=0>Hungary</option>
                                     <option value=0>Israel</option>
                                     <option value=0>Italy</option>
@@ -223,39 +224,24 @@
 
             <div class="row">
                 <div class="col s12 center">
-
-
-                    <!-- 
-
-                    <div class="card col lg4 m4 s12" STYLE="position:absolute; LEFT:200px; TOP:800px;">
-
-
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator" src="../media/sangria-4469554.png">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Wine Word-Cloud<i
-                                    class="material-icons right">more_vert</i></span>
-                         
-                        </div>
-                        <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">Taste Notes Galore...<i
-                                    class="material-icons right">close</i></span>
-                            <p>The bottle to the right uniquely displays some of the commmon words used to describe the
-                                wines in the
-                                data set. In fact, the bottle and glasses started out as the picture you see here in on
-                                the
-                                title card. We transposed the words onto a mask of a wine glass and bottles for added
-                                effect. Which of
-                                these words describe your favorite types of wine???
-                            </p>
-                        </div>
-                    </div> -->
-
-
-
-
-
+                    <div id="table-area" class="">
+                            <h1 class="text-center loader" id="loader">Wine List</h1>
+                            <table id="ufo-table" class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th class="table-head">Title</th>
+                                  <th class="table-head">Country</th>
+                                  <th class="table-head">Score</th>
+                                  <th class="table-head">Price</th>
+                                  <th class="table-head">Region</th>
+                                  <th class="table-head">Variety</th>
+                                  <th class="table-head">Category</th>
+                                  <th class="table-head">Flavor Notes</th>
+                                </tr>
+                              </thead>
+                              <tbody></tbody>
+                            </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -293,7 +279,9 @@
 
         });
     </script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+    <script src="../static/js/recommender_json.js"></script>
+    <script src="../static/js/recommend.js"></script>
 </body>
 
 </html>
