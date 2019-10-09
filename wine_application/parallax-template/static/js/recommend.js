@@ -1,55 +1,3 @@
-// Promise.all([
-//     fetch('/recommend_wines').then(response => response.json()).then(data => {
-//         console.log("Airport Promise In Progress");
-//         wine_data = data;
-//         console.log(data);
-//     })
-// ​
-//     // DEBUGGER TO CHECK THE DATA
-//     // console.log(wine_data);
-//     // console.log(routedata);
-// ​
-// ​
-// ]).then(([wines]) => {
-// ​
-//     // DEBUGGER TO CHECK THE DATA
-//     // console.log(wines);
-//     // console.log(routedata);
-// ​
-//     // Rearrange the data to make the IATA the unique key
-//     const byIata = indexBy(airportdata, 'IATA', false);
-// ​
-//     // DEBUGGER TO CHECK THE DATA
-//     // console.log(byIata);
-// ​
-//     // Filter the routes data to show nonstop flights to legitimate airports
-//     const filteredRoutes = routedata
-//         .filter(d => byIata.hasOwnProperty(d.srcIata) && byIata.hasOwnProperty(d.dstIata)) // exclude unknown/ undefined airports
-//         .filter(d => d.stops === 0) // pull in non-stop flights only
-//         .map(d => Object.assign(d, {
-//             srcAirport: byIata[d.srcIata],
-//             dstAirport: byIata[d.dstIata]
-//         }))
-// ​
-//     // DEBUGGER TO TOGGLE INTERNATIONAL ROUTES FOR QUICKER RUNTIME DURING TESTS
-//     // .filter(d => (d.srcAirport.country === "United States" && d.dstAirport.country !== "United States")); 
-// ​
-//     // DEBUGGER TO RUN VISUAL WITH A SMALLER AMOUNT OF DATA FOR FASTER TESTING
-//     // const filtered_airports = airportdata
-//     //     .filter(d => d.country === "United States");
-// ​
-// ​
-//     // DEBUGGER TO CHECK THE DATA
-//     // console.log(airportdata);
-// ​
-//     // Call the globe builder function and append the data
-//     myGlobe
-//         .labelsData(airportdata)
-//         .arcsData(filteredRoutes);
-//     // .pointsData(airportdata);
-// });
-// }
-
 // from data.js
 var tableData = data;
 
@@ -82,9 +30,11 @@ function updateFilters() {
 
   // Save the element, value, and id of the filter that was changed
   var changedElement = d3.select(this).select("input");
-  var elementValue = changedElement.property("value");
+  var elementValue = changedElement.property("value")
   var filterId = changedElement.attr("id");
-
+  console.log(filterId);
+  console.log(elementValue);
+  console.log(filters);
   // If a filter value was entered then add that filterId and value
   // to the filters list. Otherwise, clear that filter from the filters object
   if (elementValue) {
