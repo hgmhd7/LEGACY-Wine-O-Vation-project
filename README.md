@@ -1,5 +1,3 @@
-# Group_Project_3
-
 ### Wine Machine Learning
 
 This is a machine learning project to predict the score of a wine based on reduced set of variables.
